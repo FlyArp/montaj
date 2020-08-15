@@ -154,7 +154,7 @@ body {
 
 .header {
   background-color: #eee;
-  padding: 20px 0 4px;
+  padding: 30px 0 20px;
 }
 
 .header__container {
@@ -171,21 +171,24 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  margin-bottom: 10px;
 }
 
 .top-header__logo {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
 }
 
 .top-header__logo img {
+  width: 180px;
+  height: 41.25px;
   margin-right: 20px;
 }
 
@@ -205,24 +208,33 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
 }
 
 .bottom-header__menu {
+  margin-left: 200px;
   margin-right: 90px;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.menu__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .menu__item {
   display: inline;
-}
-
-.menu__item + .menu__item {
-  margin-left: 40px;
 }
 
 .menu__link {
@@ -236,12 +248,12 @@ body {
   line-height: 12px;
   color: #fff;
   background-color: #915052;
-  padding: 10px 24px;
+  padding: 12.5px 30px;
   border-radius: 3px;
 }
 
 .intro {
-  background: url("../img/intro/intro-bg.jpg") 50% 50% no-repeat;
+  background: url("../img/intro/intro-bg1.jpg") 50% 50% no-repeat;
   background-size: cover;
 }
 
@@ -307,6 +319,17 @@ body {
   border-radius: 5px;
   color: #333;
   line-height: 18px;
+  -webkit-transition: -webkit-transform .4s ease;
+  transition: -webkit-transform .4s ease;
+  -o-transition: transform .4s ease;
+  transition: transform .4s ease;
+  transition: transform .4s ease, -webkit-transform .4s ease;
+}
+
+.work-type__item:hover {
+  -webkit-transform: scale(1.07);
+      -ms-transform: scale(1.07);
+          transform: scale(1.07);
 }
 
 .work-type__item + .work-type__item {
@@ -527,6 +550,12 @@ body {
   background-color: #262626;
 }
 
+.footer img {
+  width: 180px;
+  height: 41.25px;
+  max-width: 180px;
+}
+
 .footer__container {
   max-width: 1480px;
   margin: 0 auto;
@@ -554,6 +583,15 @@ body {
   margin-left: 30px;
   font-size: 14px;
   line-height: 17px;
+}
+
+.footer__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
 }
 
 .footer__nav {
@@ -602,12 +640,9 @@ body {
 }
 
 @media (max-width: 1199px) {
-  .top-header__logo {
-    display: block;
-  }
-
-  .top-header__logo img {
-    margin-bottom: 10px;
+  .top-header__logo p {
+    width: 297px;
+    font-size: 15px;
   }
 
   .bottom-header {
@@ -617,7 +652,8 @@ body {
   }
 
   .bottom-header__menu {
-    margin-right: 0;
+    margin-left: 0;
+    margin-right: 40px;
   }
 
   .menu__item + .menu__item {
@@ -796,10 +832,18 @@ body {
 }
 
 @media (max-width: 480px) {
+  .header {
+    padding: 20px 0 10px;
+  }
+
   .top-header {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+  }
+
+  .top-header.hide {
+    padding-bottom: 40px;
   }
 
   .top-header__logo img {
@@ -808,6 +852,20 @@ body {
 
   .top-header__phone {
     display: none;
+  }
+
+  .bottom-header {
+    padding-top: 10px;
+  }
+
+  .bottom-header.fixed {
+    position: fixed;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    background-color: #eee;
+    padding: 10px 20px;
+    z-index: 100;
   }
 
   .intro__text {
